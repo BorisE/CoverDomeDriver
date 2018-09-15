@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver.cs" />
+    <Compile Include="Hardware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -136,6 +137,16 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AstroUtils\AstroUtils\BE.AstroUtils.csproj">
+      <Project>{6bd11111-178e-4624-b209-f04b69c06571}</Project>
+      <Name>BE.AstroUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Logging\BE.LoggingAndConfig.csproj">
+      <Project>{31e056ee-0c45-46ea-b20b-fc0b7c3a5292}</Project>
+      <Name>BE.LoggingAndConfig</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

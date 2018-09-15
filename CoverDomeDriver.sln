@@ -5,19 +5,62 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoverDomeDriver", "CoverDomeDriver\CoverDomeDriver.csproj", "{64308775-BD4A-469C-BCAB-3ED830B811AF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{6CC90308-DB88-46AB-8BAC-960D6841EA30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE.LoggingAndConfig", "..\Logging\BE.LoggingAndConfig.csproj", "{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE.AstroUtilsASCOM", "..\AstroUtils\AstroUtilsASCOM\BE.AstroUtilsASCOM.csproj", "{98BFEF34-399C-4578-8764-79047F55D78F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE.AstroUtils", "..\AstroUtils\AstroUtils\BE.AstroUtils.csproj", "{6BD11111-178E-4624-B209-F04B69C06571}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Debug|x86.Build.0 = Debug|Any CPU
 		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Release|x86.ActiveCfg = Release|Any CPU
+		{64308775-BD4A-469C-BCAB-3ED830B811AF}.Release|x86.Build.0 = Release|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Debug|x86.Build.0 = Debug|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Release|x86.ActiveCfg = Release|Any CPU
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292}.Release|x86.Build.0 = Release|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Debug|x86.Build.0 = Debug|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Release|x86.ActiveCfg = Release|Any CPU
+		{98BFEF34-399C-4578-8764-79047F55D78F}.Release|x86.Build.0 = Release|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Debug|x86.Build.0 = Debug|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Release|x86.ActiveCfg = Release|Any CPU
+		{6BD11111-178E-4624-B209-F04B69C06571}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{31E056EE-0C45-46EA-B20B-FC0B7C3A5292} = {6CC90308-DB88-46AB-8BAC-960D6841EA30}
+		{98BFEF34-399C-4578-8764-79047F55D78F} = {6CC90308-DB88-46AB-8BAC-960D6841EA30}
+		{6BD11111-178E-4624-B209-F04B69C06571} = {6CC90308-DB88-46AB-8BAC-960D6841EA30}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6E294C0B-D489-44EF-9EF0-C45E9D3ED14F}
