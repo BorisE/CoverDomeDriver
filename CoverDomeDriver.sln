@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE.AstroUtilsASCOM", "..\As
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BE.AstroUtils", "..\AstroUtils\AstroUtils\BE.AstroUtils.csproj", "{6BD11111-178E-4624-B209-F04B69C06571}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOCoverControl", "MOCoverControl\MOCoverControl.csproj", "{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,14 @@ Global
 		{6BD11111-178E-4624-B209-F04B69C06571}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6BD11111-178E-4624-B209-F04B69C06571}.Release|x86.ActiveCfg = Release|Any CPU
 		{6BD11111-178E-4624-B209-F04B69C06571}.Release|x86.Build.0 = Release|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Debug|x86.Build.0 = Debug|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Release|x86.ActiveCfg = Release|Any CPU
+		{D0E9BF1A-3974-4C07-B9DA-79DD74EDC128}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
