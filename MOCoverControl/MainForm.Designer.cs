@@ -29,55 +29,67 @@ namespace MOCoverControl
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.txtLogBox = new System.Windows.Forms.RichTextBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPortList = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.progressBarOpenClose = new System.Windows.Forms.ProgressBar();
             this.btnCloseCover = new System.Windows.Forms.Button();
+            this.btnStop = new System.Windows.Forms.Button();
+            this.btnSlowBackward = new System.Windows.Forms.Button();
+            this.btnFastBackward = new System.Windows.Forms.Button();
+            this.btnSlowForward = new System.Windows.Forms.Button();
+            this.btnFastForward = new System.Windows.Forms.Button();
             this.btnOpenCover = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtRewindSlowSteps = new System.Windows.Forms.TextBox();
+            this.txtRewindFastSteps = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnSensorSetCLN = new System.Windows.Forms.Button();
+            this.btnSensorSetACL = new System.Windows.Forms.Button();
+            this.btnSensorSetSPD = new System.Windows.Forms.Button();
             this.btnSensorSetPOS = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtSensPOS = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtSensSPD = new System.Windows.Forms.TextBox();
             this.txtSensSPC = new System.Windows.Forms.TextBox();
+            this.txtSensCLN = new System.Windows.Forms.TextBox();
             this.txtSensACL = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
-            this.btnSensorSetSPD = new System.Windows.Forms.Button();
-            this.btnSensorSetACL = new System.Windows.Forms.Button();
-            this.txtSensCLN = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.btnSensorSetCLN = new System.Windows.Forms.Button();
-            this.progressBarOpenClose = new System.Windows.Forms.ProgressBar();
-            this.btnStop = new System.Windows.Forms.Button();
-            this.btnFastForward = new System.Windows.Forms.Button();
-            this.btnFastBackward = new System.Windows.Forms.Button();
-            this.btnSlowForward = new System.Windows.Forms.Button();
-            this.btnSlowBackward = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtRewindSlowSteps = new System.Windows.Forms.TextBox();
-            this.txtRewindFastSteps = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.timerRewind = new System.Windows.Forms.Timer(this.components);
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.linkMilantiev = new System.Windows.Forms.LinkLabel();
+            this.linkAstromania = new System.Windows.Forms.LinkLabel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.linkAstrohostel = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLogBox
@@ -87,7 +99,7 @@ namespace MOCoverControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLogBox.Location = new System.Drawing.Point(6, 25);
             this.txtLogBox.Name = "txtLogBox";
-            this.txtLogBox.Size = new System.Drawing.Size(509, 555);
+            this.txtLogBox.Size = new System.Drawing.Size(509, 603);
             this.txtLogBox.TabIndex = 0;
             this.txtLogBox.Text = "";
             // 
@@ -105,11 +117,11 @@ namespace MOCoverControl
             // 
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbPortList);
             this.groupBox1.Controls.Add(this.btnStart);
             this.groupBox1.Location = new System.Drawing.Point(590, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(316, 177);
+            this.groupBox1.Size = new System.Drawing.Size(339, 177);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Подключение";
@@ -132,13 +144,13 @@ namespace MOCoverControl
             this.label1.TabIndex = 3;
             this.label1.Text = "COM порт";
             // 
-            // comboBox1
+            // cmbPortList
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(111, 33);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(98, 28);
-            this.comboBox1.TabIndex = 0;
+            this.cmbPortList.FormattingEnabled = true;
+            this.cmbPortList.Location = new System.Drawing.Point(111, 33);
+            this.cmbPortList.Name = "cmbPortList";
+            this.cmbPortList.Size = new System.Drawing.Size(98, 28);
+            this.cmbPortList.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -157,6 +169,13 @@ namespace MOCoverControl
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Управление крышкой";
             // 
+            // progressBarOpenClose
+            // 
+            this.progressBarOpenClose.Location = new System.Drawing.Point(19, 105);
+            this.progressBarOpenClose.Name = "progressBarOpenClose";
+            this.progressBarOpenClose.Size = new System.Drawing.Size(533, 17);
+            this.progressBarOpenClose.TabIndex = 3;
+            // 
             // btnCloseCover
             // 
             this.btnCloseCover.Enabled = false;
@@ -167,230 +186,6 @@ namespace MOCoverControl
             this.btnCloseCover.Text = "Закрыть";
             this.btnCloseCover.UseVisualStyleBackColor = true;
             this.btnCloseCover.Click += new System.EventHandler(this.btnCloseCover_Click);
-            // 
-            // btnOpenCover
-            // 
-            this.btnOpenCover.Enabled = false;
-            this.btnOpenCover.Location = new System.Drawing.Point(19, 36);
-            this.btnOpenCover.Name = "btnOpenCover";
-            this.btnOpenCover.Size = new System.Drawing.Size(101, 45);
-            this.btnOpenCover.TabIndex = 0;
-            this.btnOpenCover.Text = "Открыть";
-            this.btnOpenCover.UseVisualStyleBackColor = true;
-            this.btnOpenCover.Click += new System.EventHandler(this.btnOpenCover_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(759, 187);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 36);
-            this.button3.TabIndex = 4;
-            this.button3.Text = ">>";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.groupBox5);
-            this.panel1.Controls.Add(this.groupBox4);
-            this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Location = new System.Drawing.Point(3, 240);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(919, 592);
-            this.panel1.TabIndex = 5;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnSensorSetCLN);
-            this.groupBox4.Controls.Add(this.btnSensorSetACL);
-            this.groupBox4.Controls.Add(this.btnSensorSetSPD);
-            this.groupBox4.Controls.Add(this.btnSensorSetPOS);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.txtSensPOS);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.txtSensSPD);
-            this.groupBox4.Controls.Add(this.txtSensSPC);
-            this.groupBox4.Controls.Add(this.txtSensCLN);
-            this.groupBox4.Controls.Add(this.txtSensACL);
-            this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(530, 13);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(369, 217);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Параметры драйвера";
-            // 
-            // btnSensorSetPOS
-            // 
-            this.btnSensorSetPOS.Location = new System.Drawing.Point(247, 28);
-            this.btnSensorSetPOS.Name = "btnSensorSetPOS";
-            this.btnSensorSetPOS.Size = new System.Drawing.Size(75, 29);
-            this.btnSensorSetPOS.TabIndex = 4;
-            this.btnSensorSetPOS.Text = ">>";
-            this.btnSensorSetPOS.UseVisualStyleBackColor = true;
-            this.btnSensorSetPOS.Click += new System.EventHandler(this.btnSensorSetPOS_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Позиция";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 137);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Тек.скорость";
-            // 
-            // txtSensPOS
-            // 
-            this.txtSensPOS.Location = new System.Drawing.Point(140, 29);
-            this.txtSensPOS.Name = "txtSensPOS";
-            this.txtSensPOS.Size = new System.Drawing.Size(84, 26);
-            this.txtSensPOS.TabIndex = 2;
-            this.txtSensPOS.Enter += new System.EventHandler(this.txtSens_Enter);
-            this.txtSensPOS.Leave += new System.EventHandler(this.txtSens_Leave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Ускорение";
-            // 
-            // txtSensSPD
-            // 
-            this.txtSensSPD.Location = new System.Drawing.Point(140, 64);
-            this.txtSensSPD.Name = "txtSensSPD";
-            this.txtSensSPD.Size = new System.Drawing.Size(84, 26);
-            this.txtSensSPD.TabIndex = 2;
-            this.txtSensSPD.Enter += new System.EventHandler(this.txtSens_Enter);
-            this.txtSensSPD.Leave += new System.EventHandler(this.txtSens_Leave);
-            // 
-            // txtSensSPC
-            // 
-            this.txtSensSPC.Location = new System.Drawing.Point(140, 134);
-            this.txtSensSPC.Name = "txtSensSPC";
-            this.txtSensSPC.ReadOnly = true;
-            this.txtSensSPC.Size = new System.Drawing.Size(84, 26);
-            this.txtSensSPC.TabIndex = 2;
-            // 
-            // txtSensACL
-            // 
-            this.txtSensACL.Location = new System.Drawing.Point(140, 99);
-            this.txtSensACL.Name = "txtSensACL";
-            this.txtSensACL.Size = new System.Drawing.Size(84, 26);
-            this.txtSensACL.TabIndex = 2;
-            this.txtSensACL.Enter += new System.EventHandler(this.txtSens_Enter);
-            this.txtSensACL.Leave += new System.EventHandler(this.txtSens_Leave);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 67);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Макс.скорость";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.txtLogBox);
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(521, 586);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Лог";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Location = new System.Drawing.Point(6, 8);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(916, 226);
-            this.panel2.TabIndex = 6;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(6, 187);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 36);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "О программе";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // mainTimer
-            // 
-            this.mainTimer.Interval = 1000;
-            this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
-            // 
-            // btnSensorSetSPD
-            // 
-            this.btnSensorSetSPD.Location = new System.Drawing.Point(247, 63);
-            this.btnSensorSetSPD.Name = "btnSensorSetSPD";
-            this.btnSensorSetSPD.Size = new System.Drawing.Size(75, 29);
-            this.btnSensorSetSPD.TabIndex = 4;
-            this.btnSensorSetSPD.Text = ">>";
-            this.btnSensorSetSPD.UseVisualStyleBackColor = true;
-            this.btnSensorSetSPD.Click += new System.EventHandler(this.btnSensorSetSPD_Click);
-            // 
-            // btnSensorSetACL
-            // 
-            this.btnSensorSetACL.Location = new System.Drawing.Point(247, 98);
-            this.btnSensorSetACL.Name = "btnSensorSetACL";
-            this.btnSensorSetACL.Size = new System.Drawing.Size(75, 29);
-            this.btnSensorSetACL.TabIndex = 4;
-            this.btnSensorSetACL.Text = ">>";
-            this.btnSensorSetACL.UseVisualStyleBackColor = true;
-            this.btnSensorSetACL.Click += new System.EventHandler(this.btnSensorSetACL_Click);
-            // 
-            // txtSensCLN
-            // 
-            this.txtSensCLN.Location = new System.Drawing.Point(140, 169);
-            this.txtSensCLN.Name = "txtSensCLN";
-            this.txtSensCLN.Size = new System.Drawing.Size(84, 26);
-            this.txtSensCLN.TabIndex = 2;
-            this.txtSensCLN.Enter += new System.EventHandler(this.txtSens_Enter);
-            this.txtSensCLN.Leave += new System.EventHandler(this.txtSens_Leave);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 172);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 20);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Длина цикла";
-            // 
-            // btnSensorSetCLN
-            // 
-            this.btnSensorSetCLN.Location = new System.Drawing.Point(247, 168);
-            this.btnSensorSetCLN.Name = "btnSensorSetCLN";
-            this.btnSensorSetCLN.Size = new System.Drawing.Size(75, 29);
-            this.btnSensorSetCLN.TabIndex = 4;
-            this.btnSensorSetCLN.Text = ">>";
-            this.btnSensorSetCLN.UseVisualStyleBackColor = true;
-            this.btnSensorSetCLN.Click += new System.EventHandler(this.btnSensorSetCLN_Click);
-            // 
-            // progressBarOpenClose
-            // 
-            this.progressBarOpenClose.Location = new System.Drawing.Point(19, 105);
-            this.progressBarOpenClose.Name = "progressBarOpenClose";
-            this.progressBarOpenClose.Size = new System.Drawing.Size(533, 17);
-            this.progressBarOpenClose.TabIndex = 3;
             // 
             // btnStop
             // 
@@ -403,17 +198,17 @@ namespace MOCoverControl
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // btnFastForward
+            // btnSlowBackward
             // 
-            this.btnFastForward.Enabled = false;
-            this.btnFastForward.Location = new System.Drawing.Point(127, 36);
-            this.btnFastForward.Name = "btnFastForward";
-            this.btnFastForward.Size = new System.Drawing.Size(47, 45);
-            this.btnFastForward.TabIndex = 0;
-            this.btnFastForward.Text = "<<";
-            this.btnFastForward.UseVisualStyleBackColor = true;
-            this.btnFastForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFastForward_MouseDown);
-            this.btnFastForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnFastForward_MouseUp);
+            this.btnSlowBackward.Enabled = false;
+            this.btnSlowBackward.Location = new System.Drawing.Point(343, 36);
+            this.btnSlowBackward.Name = "btnSlowBackward";
+            this.btnSlowBackward.Size = new System.Drawing.Size(47, 45);
+            this.btnSlowBackward.TabIndex = 0;
+            this.btnSlowBackward.Text = ">";
+            this.btnSlowBackward.UseVisualStyleBackColor = true;
+            this.btnSlowBackward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSlowBackward_MouseDown);
+            this.btnSlowBackward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSlowBackward_MouseUp);
             // 
             // btnFastBackward
             // 
@@ -439,17 +234,51 @@ namespace MOCoverControl
             this.btnSlowForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSlowForward_MouseDown);
             this.btnSlowForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSlowForward_MouseUp);
             // 
-            // btnSlowBackward
+            // btnFastForward
             // 
-            this.btnSlowBackward.Enabled = false;
-            this.btnSlowBackward.Location = new System.Drawing.Point(343, 36);
-            this.btnSlowBackward.Name = "btnSlowBackward";
-            this.btnSlowBackward.Size = new System.Drawing.Size(47, 45);
-            this.btnSlowBackward.TabIndex = 0;
-            this.btnSlowBackward.Text = ">";
-            this.btnSlowBackward.UseVisualStyleBackColor = true;
-            this.btnSlowBackward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnSlowBackward_MouseDown);
-            this.btnSlowBackward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnSlowBackward_MouseUp);
+            this.btnFastForward.Enabled = false;
+            this.btnFastForward.Location = new System.Drawing.Point(127, 36);
+            this.btnFastForward.Name = "btnFastForward";
+            this.btnFastForward.Size = new System.Drawing.Size(47, 45);
+            this.btnFastForward.TabIndex = 0;
+            this.btnFastForward.Text = "<<";
+            this.btnFastForward.UseVisualStyleBackColor = true;
+            this.btnFastForward.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnFastForward_MouseDown);
+            this.btnFastForward.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnFastForward_MouseUp);
+            // 
+            // btnOpenCover
+            // 
+            this.btnOpenCover.Enabled = false;
+            this.btnOpenCover.Location = new System.Drawing.Point(19, 36);
+            this.btnOpenCover.Name = "btnOpenCover";
+            this.btnOpenCover.Size = new System.Drawing.Size(101, 45);
+            this.btnOpenCover.TabIndex = 0;
+            this.btnOpenCover.Text = "Открыть";
+            this.btnOpenCover.UseVisualStyleBackColor = true;
+            this.btnOpenCover.Click += new System.EventHandler(this.btnOpenCover_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(782, 187);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(147, 36);
+            this.button3.TabIndex = 4;
+            this.button3.Text = ">>";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.groupBox6);
+            this.panel1.Controls.Add(this.groupBox5);
+            this.panel1.Controls.Add(this.groupBox4);
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Location = new System.Drawing.Point(3, 240);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(940, 645);
+            this.panel1.TabIndex = 5;
             // 
             // groupBox5
             // 
@@ -457,9 +286,9 @@ namespace MOCoverControl
             this.groupBox5.Controls.Add(this.txtRewindSlowSteps);
             this.groupBox5.Controls.Add(this.txtRewindFastSteps);
             this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(530, 236);
+            this.groupBox5.Location = new System.Drawing.Point(530, 226);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(369, 132);
+            this.groupBox5.Size = new System.Drawing.Size(402, 105);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Параметры программы";
@@ -500,31 +329,325 @@ namespace MOCoverControl
             this.label11.TabIndex = 3;
             this.label11.Text = "Быстрая перемотка";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnSensorSetCLN);
+            this.groupBox4.Controls.Add(this.btnSensorSetACL);
+            this.groupBox4.Controls.Add(this.btnSensorSetSPD);
+            this.groupBox4.Controls.Add(this.btnSensorSetPOS);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.txtSensPOS);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label4);
+            this.groupBox4.Controls.Add(this.txtSensSPD);
+            this.groupBox4.Controls.Add(this.txtSensSPC);
+            this.groupBox4.Controls.Add(this.txtSensCLN);
+            this.groupBox4.Controls.Add(this.txtSensACL);
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Location = new System.Drawing.Point(530, 3);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(402, 217);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Параметры драйвера";
+            // 
+            // btnSensorSetCLN
+            // 
+            this.btnSensorSetCLN.Location = new System.Drawing.Point(247, 168);
+            this.btnSensorSetCLN.Name = "btnSensorSetCLN";
+            this.btnSensorSetCLN.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetCLN.TabIndex = 4;
+            this.btnSensorSetCLN.Text = ">>";
+            this.btnSensorSetCLN.UseVisualStyleBackColor = true;
+            this.btnSensorSetCLN.Click += new System.EventHandler(this.btnSensorSetCLN_Click);
+            // 
+            // btnSensorSetACL
+            // 
+            this.btnSensorSetACL.Location = new System.Drawing.Point(247, 98);
+            this.btnSensorSetACL.Name = "btnSensorSetACL";
+            this.btnSensorSetACL.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetACL.TabIndex = 4;
+            this.btnSensorSetACL.Text = ">>";
+            this.btnSensorSetACL.UseVisualStyleBackColor = true;
+            this.btnSensorSetACL.Click += new System.EventHandler(this.btnSensorSetACL_Click);
+            // 
+            // btnSensorSetSPD
+            // 
+            this.btnSensorSetSPD.Location = new System.Drawing.Point(247, 63);
+            this.btnSensorSetSPD.Name = "btnSensorSetSPD";
+            this.btnSensorSetSPD.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetSPD.TabIndex = 4;
+            this.btnSensorSetSPD.Text = ">>";
+            this.btnSensorSetSPD.UseVisualStyleBackColor = true;
+            this.btnSensorSetSPD.Click += new System.EventHandler(this.btnSensorSetSPD_Click);
+            // 
+            // btnSensorSetPOS
+            // 
+            this.btnSensorSetPOS.Location = new System.Drawing.Point(247, 28);
+            this.btnSensorSetPOS.Name = "btnSensorSetPOS";
+            this.btnSensorSetPOS.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetPOS.TabIndex = 4;
+            this.btnSensorSetPOS.Text = ">>";
+            this.btnSensorSetPOS.UseVisualStyleBackColor = true;
+            this.btnSensorSetPOS.Click += new System.EventHandler(this.btnSensorSetPOS_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Позиция";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 137);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(108, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Тек.скорость";
+            // 
+            // txtSensPOS
+            // 
+            this.txtSensPOS.Location = new System.Drawing.Point(140, 29);
+            this.txtSensPOS.Name = "txtSensPOS";
+            this.txtSensPOS.Size = new System.Drawing.Size(84, 26);
+            this.txtSensPOS.TabIndex = 2;
+            this.txtSensPOS.Enter += new System.EventHandler(this.txtSens_Enter);
+            this.txtSensPOS.Leave += new System.EventHandler(this.txtSens_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(14, 172);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 20);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Длина цикла";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 102);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Ускорение";
+            // 
+            // txtSensSPD
+            // 
+            this.txtSensSPD.Location = new System.Drawing.Point(140, 64);
+            this.txtSensSPD.Name = "txtSensSPD";
+            this.txtSensSPD.Size = new System.Drawing.Size(84, 26);
+            this.txtSensSPD.TabIndex = 2;
+            this.txtSensSPD.Enter += new System.EventHandler(this.txtSens_Enter);
+            this.txtSensSPD.Leave += new System.EventHandler(this.txtSens_Leave);
+            // 
+            // txtSensSPC
+            // 
+            this.txtSensSPC.Location = new System.Drawing.Point(140, 134);
+            this.txtSensSPC.Name = "txtSensSPC";
+            this.txtSensSPC.ReadOnly = true;
+            this.txtSensSPC.Size = new System.Drawing.Size(84, 26);
+            this.txtSensSPC.TabIndex = 2;
+            // 
+            // txtSensCLN
+            // 
+            this.txtSensCLN.Location = new System.Drawing.Point(140, 169);
+            this.txtSensCLN.Name = "txtSensCLN";
+            this.txtSensCLN.Size = new System.Drawing.Size(84, 26);
+            this.txtSensCLN.TabIndex = 2;
+            this.txtSensCLN.Enter += new System.EventHandler(this.txtSens_Enter);
+            this.txtSensCLN.Leave += new System.EventHandler(this.txtSens_Leave);
+            // 
+            // txtSensACL
+            // 
+            this.txtSensACL.Location = new System.Drawing.Point(140, 99);
+            this.txtSensACL.Name = "txtSensACL";
+            this.txtSensACL.Size = new System.Drawing.Size(84, 26);
+            this.txtSensACL.TabIndex = 2;
+            this.txtSensACL.Enter += new System.EventHandler(this.txtSens_Enter);
+            this.txtSensACL.Leave += new System.EventHandler(this.txtSens_Leave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(14, 67);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 20);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Макс.скорость";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtLogBox);
+            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(521, 634);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Лог";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.button3);
+            this.panel2.Location = new System.Drawing.Point(6, 8);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(937, 226);
+            this.panel2.TabIndex = 6;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(6, 187);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(147, 36);
+            this.button5.TabIndex = 4;
+            this.button5.Text = "О программе";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // mainTimer
+            // 
+            this.mainTimer.Interval = 1000;
+            this.mainTimer.Tick += new System.EventHandler(this.mainTimer_Tick);
+            // 
             // timerRewind
             // 
             this.timerRewind.Interval = 1000;
             this.timerRewind.Tick += new System.EventHandler(this.timerRewind_Tick);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.linkAstrohostel);
+            this.groupBox6.Controls.Add(this.linkMilantiev);
+            this.groupBox6.Controls.Add(this.linkAstromania);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.pictureBox1);
+            this.groupBox6.Location = new System.Drawing.Point(530, 337);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(402, 300);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "O..";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 90);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(238, 131);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(6, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(266, 22);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "MotorHat Contorl Software";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 226);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(179, 20);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Device by Oleg Milantiev";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 258);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(213, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Software by Boris Emchenko";
+            // 
+            // linkMilantiev
+            // 
+            this.linkMilantiev.AutoSize = true;
+            this.linkMilantiev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkMilantiev.Location = new System.Drawing.Point(243, 226);
+            this.linkMilantiev.Name = "linkMilantiev";
+            this.linkMilantiev.Size = new System.Drawing.Size(144, 20);
+            this.linkMilantiev.TabIndex = 15;
+            this.linkMilantiev.TabStop = true;
+            this.linkMilantiev.Text = "astro.milantiev.com";
+            // 
+            // linkAstromania
+            // 
+            this.linkAstromania.AutoSize = true;
+            this.linkAstromania.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkAstromania.Location = new System.Drawing.Point(232, 258);
+            this.linkAstromania.Name = "linkAstromania";
+            this.linkAstromania.Size = new System.Drawing.Size(155, 20);
+            this.linkAstromania.TabIndex = 16;
+            this.linkAstromania.TabStop = true;
+            this.linkAstromania.Text = "www.astromania.info";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(8, 56);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(211, 20);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Part of Astrohostel.ru project";
+            // 
+            // linkAstrohostel
+            // 
+            this.linkAstrohostel.AutoSize = true;
+            this.linkAstrohostel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkAstrohostel.Location = new System.Drawing.Point(273, 56);
+            this.linkAstrohostel.Name = "linkAstrohostel";
+            this.linkAstrohostel.Size = new System.Drawing.Size(106, 20);
+            this.linkAstrohostel.TabIndex = 17;
+            this.linkAstrohostel.TabStop = true;
+            this.linkAstrohostel.Text = "astrohostel.ru";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(923, 838);
+            this.ClientSize = new System.Drawing.Size(947, 888);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Text = "Контроллер крышки объектива";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -536,7 +659,7 @@ namespace MOCoverControl
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPortList;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnCloseCover;
         private System.Windows.Forms.Button btnOpenCover;
@@ -573,6 +696,15 @@ namespace MOCoverControl
         private System.Windows.Forms.TextBox txtRewindFastSteps;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Timer timerRewind;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.LinkLabel linkAstrohostel;
+        private System.Windows.Forms.LinkLabel linkMilantiev;
+        private System.Windows.Forms.LinkLabel linkAstromania;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

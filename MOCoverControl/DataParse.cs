@@ -117,6 +117,10 @@ namespace MOCoverControl
                             {
                                 ComObj.sensorMVE = Convert.ToInt16(tagValue_dbl);
                             }
+                            else if (tagName == "DST")
+                            {
+                                ComObj.sensorDST = Convert.ToInt16(tagValue_dbl);
+                            }
                             else if (tagName == "OPN")
                             {
                                 ComObj.sensorOpened = Convert.ToInt16(tagValue_dbl);

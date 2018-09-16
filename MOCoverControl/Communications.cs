@@ -42,10 +42,14 @@ namespace MOCoverControl
         public Int16 sensorOpened;
         public Int16 sensorClosed;
         public Int16 sensorMVE;
+        public Int32 sensorDST;
 
         public Int32 MeasureCycleLen;
         public string SketchVersion;
         public string SketchVersionDate;
+
+        // position vars
+        public int StartPos = 0;
 
         public Communications(CallBackOutputFunction PublishData)
         {
@@ -63,10 +67,12 @@ namespace MOCoverControl
 
         public void OpenCover()
         {
+            StartPos = sensorPOS;
             DataReadObj.WriteSerialData("OPEN");
         }
         public void CloseCover()
         {
+            StartPos = sensorPOS;
             DataReadObj.WriteSerialData("CLOSE");
         }
         internal void StopCover()
@@ -75,6 +81,7 @@ namespace MOCoverControl
         }
         internal void MoveCoverInc(int v)
         {
+            StartPos = sensorPOS;
             DataReadObj.WriteSerialData("MOV:" + v);
         }
 

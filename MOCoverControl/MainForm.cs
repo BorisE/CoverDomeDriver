@@ -1,8 +1,10 @@
+using LoggingLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -21,12 +23,13 @@ namespace MOCoverControl
         Color DefBackColor;
         Color DefBackColorTextBoxes;
 
-        const int mainTimer_Interval_Quick = 100;
+        const int mainTimer_Interval_Quick = 50;
         const int mainTimer_Interval_Normal = 2000;
 
         bool bBlockSensorRefresh = false;
         bool bMoving = false;
-        Int32 DistanceToGo = 0;
+
+        int ShuffleDistance = 0;
 
         int FastForwardDefault = 200;
         int SlowForwardDefault = 50;
@@ -43,6 +46,13 @@ namespace MOCoverControl
         private void MainForm_Load(object sender, EventArgs e)
         {
             DefBackColor = btnOpenCover.BackColor;
+
+            //READ COM PORT LIST
+            cmbPortList.Items.Clear();
+            foreach (string s in SerialPort.GetPortNames())
+                cmbPortList.Items.Add(s);
+
+            cmbPortList.SelectedItem = ComObj.DataReadObj.PortName;
         }
 
 
@@ -145,35 +155,41 @@ namespace MOCoverControl
 
                 mainTimer.Interval = mainTimer_Interval_Quick;
 
-                //Если только запуск
+                //Если эо первый цикл запуска
                 if (!bMoving)
                 {
                     //Установить прогресс бар
-                    progressBarOpenClose.Maximum = Math.Abs(ComObj.sensorPOS + DistanceToGo);
-                    progressBarOpenClose.Minimum = Math.Abs(ComObj.sensorPOS);
+                    progressBarOpenClose.Minimum = 0;
+                    progressBarOpenClose.Maximum = Math.Abs(ComObj.sensorDST);
                     bMoving = true;
                 }
-                progressBarOpenClose.Value = ComObj.sensorPOS;
+
+                try
+                {
+                    //а то он при частом нажатии клавиш не успевает обрабатывать и бывает вылетает
+                    progressBarOpenClose.Value = Math.Abs(ComObj.sensorPOS - ComObj.StartPos);
+                }
+                catch
+                { }
+
             }
             else
             {
                 //заблокировать кнопку Stop
                 btnStop.Enabled = false;
+                btnFastForward.Enabled = true;
+                btnSlowForward.Enabled = true;
+                btnSlowBackward.Enabled = true;
+                btnFastBackward.Enabled = true;
+
                 mainTimer.Interval = mainTimer_Interval_Normal;
 
                 //Если раньше было в движении
                 if (bMoving)
                 {
                     //Окончить прогресс бар 
-                    if (curRewindSteps < 0)
-                    { 
-                        progressBarOpenClose.Minimum = ComObj.sensorPOS;
-                    }
-                    else
-                    {
-                        progressBarOpenClose.Maximum = ComObj.sensorPOS;
-                    }
-                    progressBarOpenClose.Value = ComObj.sensorPOS;
+                    progressBarOpenClose.Maximum = Math.Abs(ComObj.sensorPOS - ComObj.StartPos);
+                    progressBarOpenClose.Value = Math.Abs(ComObj.sensorPOS - ComObj.StartPos);
                     bMoving = false;
                 }
             }
@@ -202,6 +218,116 @@ namespace MOCoverControl
 
         }
 
+        private void btnOpenCover_Click(object sender, EventArgs e)
+        {
+            bMoving = true;
+            ComObj.OpenCover();
+            mainTimer.Interval = mainTimer_Interval_Quick;
+
+        }
+        private void btnCloseCover_Click(object sender, EventArgs e)
+        {
+            bMoving = true;
+            ComObj.CloseCover();
+            mainTimer.Interval = mainTimer_Interval_Quick;
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            ComObj.StopCover();
+        }
+
+        
+        /******************************************************************
+        * 
+        * Перемотка
+        * 
+        ******************************************************************/
+        private void timerRewind_Tick(object sender, EventArgs e)
+        {
+            ComObj.MoveCoverInc(ShuffleDistance);
+        }
+
+
+        /// <summary>
+        /// Перемотка быстрая вперед
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFastForward_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!Int32.TryParse(txtRewindFastSteps.Text, out int FFSteps)) FFSteps = FastForwardDefault;
+            ShuffleDistance = FFSteps;
+            timerRewind.Enabled = true;
+            timerRewind_Tick(null, null);
+        }
+
+        private void btnFastForward_MouseUp(object sender, MouseEventArgs e)
+        {
+            timerRewind.Enabled = false;
+        }
+
+
+        /// <summary>
+        /// Перемотка медленная вперед
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSlowForward_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!Int32.TryParse(txtRewindSlowSteps.Text, out int SFSteps)) SFSteps = SlowForwardDefault;
+            ShuffleDistance = SFSteps;
+            timerRewind.Enabled = true;
+            timerRewind_Tick(null, null);
+        }
+
+        private void btnSlowForward_MouseUp(object sender, MouseEventArgs e)
+        {
+            timerRewind.Enabled = false;
+        }
+
+
+        /// <summary>
+        /// Перемотка быстрая назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFastBackward_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!Int32.TryParse(txtRewindFastSteps.Text, out int FFSteps)) FFSteps = FastForwardDefault;
+            ShuffleDistance = -FFSteps;
+            timerRewind.Enabled = true;
+            timerRewind_Tick(null, null);
+        }
+
+        private void btnFastBackward_MouseUp(object sender, MouseEventArgs e)
+        {
+            timerRewind.Enabled = false;
+        }
+
+        /// <summary>
+        /// Перемотка медленная назад
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSlowBackward_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!Int32.TryParse(txtRewindSlowSteps.Text, out int SFSteps)) SFSteps = SlowForwardDefault;
+            ShuffleDistance = -SFSteps;
+            timerRewind.Enabled = true;
+            timerRewind_Tick(null, null);
+        }
+        private void btnSlowBackward_MouseUp(object sender, MouseEventArgs e)
+        {
+            timerRewind.Enabled = false;
+        }
+
+
+        /************************************************************************
+         * 
+         *      Установка параметров
+         * 
+         * **********************************************************************/
         private void txtSens_Enter(object sender, EventArgs e)
         {
             bBlockSensorRefresh = true;
@@ -226,7 +352,7 @@ namespace MOCoverControl
 
         private void btnSensorSetACL_Click(object sender, EventArgs e)
         {
-            ComObj.setAcceleration (Convert.ToInt32(txtSensACL.Text));
+            ComObj.setAcceleration(Convert.ToInt32(txtSensACL.Text));
         }
 
         private void btnSensorSetCLN_Click(object sender, EventArgs e)
@@ -234,100 +360,16 @@ namespace MOCoverControl
             ComObj.setCylceLength(Convert.ToInt32(txtSensCLN.Text));
         }
 
-        private void btnOpenCover_Click(object sender, EventArgs e)
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bMoving = true;
-            ComObj.OpenCover();
-            mainTimer.Interval = mainTimer_Interval_Quick;
-            DistanceToGo = ComObj.sensorCLN;
+            mainTimer.Stop();
+            timerRewind.Stop();
 
+            Properties.Settings.Default.Save(); // Commit changes
+            //SaveXMLSettingsToConfigFile();
+
+            Logging.AddLog("Program exit");
+            Logging.DumpToFile();
         }
-        private void btnCloseCover_Click(object sender, EventArgs e)
-        {
-            bMoving = true;
-            ComObj.CloseCover();
-            mainTimer.Interval = mainTimer_Interval_Quick;
-            DistanceToGo = -ComObj.sensorCLN;
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            ComObj.StopCover();
-        }
-
-        
-        // ******************************************************************
-        // Перемотка
-        // ******************************************************************
-        private void timerRewind_Tick(object sender, EventArgs e)
-        {
-            ComObj.MoveCoverInc(DistanceToGo);
-        }
-
-        // ******************************************************************
-        // Перемотка быстрая вперед
-        // ******************************************************************
-        private void btnFastForward_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!Int32.TryParse(txtRewindFastSteps.Text, out int FFSteps)) FFSteps = FastForwardDefault;
-            DistanceToGo = FFSteps;
-            timerRewind.Enabled = true;
-            timerRewind_Tick(null, null);
-        }
-
-        private void btnFastForward_MouseUp(object sender, MouseEventArgs e)
-        {
-            timerRewind.Enabled = false;
-        }
-        // ******************************************************************
-        // Перемотка медленная вперед
-        // ******************************************************************
-        private void btnSlowForward_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!Int32.TryParse(txtRewindSlowSteps.Text, out int SFSteps)) SFSteps = SlowForwardDefault;
-            DistanceToGo = SFSteps;
-            timerRewind.Enabled = true;
-            timerRewind_Tick(null, null);
-        }
-        private void btnSlowForward_MouseUp(object sender, MouseEventArgs e)
-        {
-            timerRewind.Enabled = false;
-        }
-
-        // ******************************************************************
-        // Перемотка быстрая назад
-        // ******************************************************************
-
-        private void btnFastBackward_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!Int32.TryParse(txtRewindFastSteps.Text, out int FFSteps)) FFSteps = FastForwardDefault;
-            DistanceToGo = -FFSteps;
-            timerRewind.Enabled = true;
-            timerRewind_Tick(null, null);
-        }
-
-        private void btnFastBackward_MouseUp(object sender, MouseEventArgs e)
-        {
-            timerRewind.Enabled = false;
-        }
-
-        // ******************************************************************
-        // Перемотка медленная назад
-        // ******************************************************************
-
-        private void btnSlowBackward_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!Int32.TryParse(txtRewindSlowSteps.Text, out int SFSteps)) SFSteps = SlowForwardDefault;
-            DistanceToGo = -SFSteps;
-            timerRewind.Enabled = true;
-            timerRewind_Tick(null, null);
-        }
-
-
-        private void btnSlowBackward_MouseUp(object sender, MouseEventArgs e)
-        {
-            timerRewind.Enabled = false;
-        }
-
     }
 }
