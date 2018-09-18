@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace MOCoverControl
+namespace MotoHatControl
 {
     public partial class MainForm : Form
     {
@@ -46,6 +47,10 @@ namespace MOCoverControl
         private void MainForm_Load(object sender, EventArgs e)
         {
             DefBackColor = btnOpenCover.BackColor;
+
+
+            VersionData.initVersionData();
+            LoadAboutData();
 
             //READ COM PORT LIST
             cmbPortList.Items.Clear();
@@ -85,22 +90,23 @@ namespace MOCoverControl
         {
             if (btnStart.Text == "Подключиться")
             {
-                //Разблокировать кнопки управления
-                btnOpenCover.Enabled = true;
-                btnFastForward.Enabled = true;
-                btnSlowForward.Enabled = true;
-                btnStop.Enabled = false;
-                btnSlowBackward.Enabled = true;
-                btnFastBackward.Enabled = true;
-                btnCloseCover.Enabled = true;
-
-                //Включить таймер
-                mainTimer.Enabled = true;
-
                 //Запустить чтение COM порта
-                ComObj.DataReadObj.StartReadData();
+                if (ComObj.DataReadObj.StartReadData())
+                {
+                    btnStart.Text = "Отключиться";
 
-                btnStart.Text = "Отключиться";
+                    //Разблокировать кнопки управления
+                    btnOpenCover.Enabled = true;
+                    btnFastForward.Enabled = true;
+                    btnSlowForward.Enabled = true;
+                    btnStop.Enabled = false;
+                    btnSlowBackward.Enabled = true;
+                    btnFastBackward.Enabled = true;
+                    btnCloseCover.Enabled = true;
+
+                    //Включить таймер
+                    mainTimer.Enabled = true;
+                }
             }
             else
             {
@@ -146,6 +152,7 @@ namespace MOCoverControl
             }
             //Sensors without possibility to edit
             txtSensSPC.Text = ComObj.sensorSPC.ToString();
+            LoadHardwareVersion(); //update sketch version
 
             //Если сейчас в движении
             if (ComObj.sensorMVE == 1)
@@ -371,5 +378,48 @@ namespace MOCoverControl
             Logging.AddLog("Program exit");
             Logging.DumpToFile();
         }
+
+
+
+        /**************************************************************************************************/
+        #region //// About information //////////////////////////////////////
+        private void LoadAboutData()
+        {
+            lblVersion.Text += "Publish version: " + VersionData.PublishVersionSt;
+            lblVersion.Text += Environment.NewLine + "Assembly version: " + VersionData.AssemblyVersionSt;
+            lblVersion.Text += Environment.NewLine + "File version: " + VersionData.FileVersionSt;
+            //lblVersion.Text += Environment.NewLine + "Product version " + ProductVersionSt;
+
+            //MessageBox.Show("Application " + assemName.Name + ", Version " + ver.ToString());
+            lblVersion.Text += Environment.NewLine + "Compile time: " + VersionData.CompileTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+            // Add link
+            LinkLabel.Link link = new LinkLabel.Link();
+            link.LinkData = "http://www.astromania.info/";
+            linkAstromania.Links.Add(link);
+
+            LinkLabel.Link link2 = new LinkLabel.Link();
+            link2.LinkData = "http://astrohostel.ru/";
+            linkAstrohostel.Links.Add(link2);
+
+            LinkLabel.Link link3 = new LinkLabel.Link();
+            link3.LinkData = "http://astro.milantiev.com/";
+            linkMilantiev.Links.Add(link3);
+        }
+
+        private void LoadHardwareVersion()
+        {
+            lblHardwareVersion.Text = "Firmware: " + ComObj.SketchVersion;
+            lblHardwareVersion.Text = "Compile time: " + ComObj.SketchVersionDate;
+        }
+
+        private void linkAny_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start(e.Link.LinkData.ToString());
+        }
+
+        #endregion About information
+        /**************************************************************************************************/
+
     }
 }

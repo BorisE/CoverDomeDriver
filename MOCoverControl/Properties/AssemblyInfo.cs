@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MOCoverControl")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("MotoHat Control")]
+[assembly: AssemblyDescription("MotoHat Objective Cover Control Software")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("MOCoverControl")]
+[assembly: AssemblyCompany("Boris Emchenko with association with Oleg Milantiev")]
+[assembly: AssemblyProduct("MotoHat Control")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("MotoHat")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

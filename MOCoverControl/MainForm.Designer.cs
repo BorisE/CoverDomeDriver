@@ -1,4 +1,4 @@
-namespace MOCoverControl
+namespace MotoHatControl
 {
     partial class MainForm
     {
@@ -47,6 +47,16 @@ namespace MOCoverControl
             this.btnOpenCover = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblVersion = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.linkAstrohostel = new System.Windows.Forms.LinkLabel();
+            this.linkMilantiev = new System.Windows.Forms.LinkLabel();
+            this.linkAstromania = new System.Windows.Forms.LinkLabel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtRewindSlowSteps = new System.Windows.Forms.TextBox();
@@ -72,24 +82,16 @@ namespace MOCoverControl
             this.button5 = new System.Windows.Forms.Button();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.timerRewind = new System.Windows.Forms.Timer(this.components);
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.linkMilantiev = new System.Windows.Forms.LinkLabel();
-            this.linkAstromania = new System.Windows.Forms.LinkLabel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.linkAstrohostel = new System.Windows.Forms.LinkLabel();
+            this.lblHardwareVersion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtLogBox
@@ -99,7 +101,7 @@ namespace MOCoverControl
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLogBox.Location = new System.Drawing.Point(6, 25);
             this.txtLogBox.Name = "txtLogBox";
-            this.txtLogBox.Size = new System.Drawing.Size(509, 603);
+            this.txtLogBox.Size = new System.Drawing.Size(457, 603);
             this.txtLogBox.TabIndex = 0;
             this.txtLogBox.Text = "";
             // 
@@ -280,15 +282,125 @@ namespace MOCoverControl
             this.panel1.Size = new System.Drawing.Size(940, 645);
             this.panel1.TabIndex = 5;
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lblHardwareVersion);
+            this.groupBox6.Controls.Add(this.lblVersion);
+            this.groupBox6.Controls.Add(this.label10);
+            this.groupBox6.Controls.Add(this.linkAstrohostel);
+            this.groupBox6.Controls.Add(this.linkMilantiev);
+            this.groupBox6.Controls.Add(this.linkAstromania);
+            this.groupBox6.Controls.Add(this.label9);
+            this.groupBox6.Controls.Add(this.label8);
+            this.groupBox6.Controls.Add(this.label14);
+            this.groupBox6.Controls.Add(this.pictureBox1);
+            this.groupBox6.Location = new System.Drawing.Point(478, 337);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(454, 300);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "O..";
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.Location = new System.Drawing.Point(6, 44);
+            this.lblVersion.Name = "lblVersion";
+            this.lblVersion.Size = new System.Drawing.Size(238, 41);
+            this.lblVersion.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label10.Location = new System.Drawing.Point(251, 104);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(211, 20);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Part of Astrohostel.ru project";
+            // 
+            // linkAstrohostel
+            // 
+            this.linkAstrohostel.AutoSize = true;
+            this.linkAstrohostel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkAstrohostel.Location = new System.Drawing.Point(251, 124);
+            this.linkAstrohostel.Name = "linkAstrohostel";
+            this.linkAstrohostel.Size = new System.Drawing.Size(106, 20);
+            this.linkAstrohostel.TabIndex = 17;
+            this.linkAstrohostel.TabStop = true;
+            this.linkAstrohostel.Text = "astrohostel.ru";
+            // 
+            // linkMilantiev
+            // 
+            this.linkMilantiev.AutoSize = true;
+            this.linkMilantiev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkMilantiev.Location = new System.Drawing.Point(243, 226);
+            this.linkMilantiev.Name = "linkMilantiev";
+            this.linkMilantiev.Size = new System.Drawing.Size(144, 20);
+            this.linkMilantiev.TabIndex = 15;
+            this.linkMilantiev.TabStop = true;
+            this.linkMilantiev.Text = "astro.milantiev.com";
+            // 
+            // linkAstromania
+            // 
+            this.linkAstromania.AutoSize = true;
+            this.linkAstromania.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.linkAstromania.Location = new System.Drawing.Point(232, 258);
+            this.linkAstromania.Name = "linkAstromania";
+            this.linkAstromania.Size = new System.Drawing.Size(155, 20);
+            this.linkAstromania.TabIndex = 16;
+            this.linkAstromania.TabStop = true;
+            this.linkAstromania.Text = "www.astromania.info";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(6, 258);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(213, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Software by Boris Emchenko";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(6, 226);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(179, 20);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Device by Oleg Milantiev";
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label14.Location = new System.Drawing.Point(6, 22);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(266, 22);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "MotoHat Contorl Software";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 90);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(238, 131);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.label7);
             this.groupBox5.Controls.Add(this.txtRewindSlowSteps);
             this.groupBox5.Controls.Add(this.txtRewindFastSteps);
             this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(530, 226);
+            this.groupBox5.Location = new System.Drawing.Point(478, 226);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(402, 105);
+            this.groupBox5.Size = new System.Drawing.Size(454, 105);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Параметры программы";
@@ -345,9 +457,9 @@ namespace MOCoverControl
             this.groupBox4.Controls.Add(this.txtSensCLN);
             this.groupBox4.Controls.Add(this.txtSensACL);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(530, 3);
+            this.groupBox4.Location = new System.Drawing.Point(478, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(402, 217);
+            this.groupBox4.Size = new System.Drawing.Size(454, 217);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Параметры драйвера";
@@ -486,7 +598,7 @@ namespace MOCoverControl
             this.groupBox3.Controls.Add(this.txtLogBox);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(521, 634);
+            this.groupBox3.Size = new System.Drawing.Size(469, 634);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Лог";
@@ -523,106 +635,12 @@ namespace MOCoverControl
             this.timerRewind.Interval = 1000;
             this.timerRewind.Tick += new System.EventHandler(this.timerRewind_Tick);
             // 
-            // groupBox6
+            // lblHardwareVersion
             // 
-            this.groupBox6.Controls.Add(this.label10);
-            this.groupBox6.Controls.Add(this.linkAstrohostel);
-            this.groupBox6.Controls.Add(this.linkMilantiev);
-            this.groupBox6.Controls.Add(this.linkAstromania);
-            this.groupBox6.Controls.Add(this.label9);
-            this.groupBox6.Controls.Add(this.label8);
-            this.groupBox6.Controls.Add(this.label14);
-            this.groupBox6.Controls.Add(this.pictureBox1);
-            this.groupBox6.Location = new System.Drawing.Point(530, 337);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(402, 300);
-            this.groupBox6.TabIndex = 5;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "O..";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 90);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 131);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
-            // 
-            // label14
-            // 
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
-            this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(6, 22);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(266, 22);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "MotorHat Contorl Software";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 226);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(179, 20);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Device by Oleg Milantiev";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 258);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Software by Boris Emchenko";
-            // 
-            // linkMilantiev
-            // 
-            this.linkMilantiev.AutoSize = true;
-            this.linkMilantiev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkMilantiev.Location = new System.Drawing.Point(243, 226);
-            this.linkMilantiev.Name = "linkMilantiev";
-            this.linkMilantiev.Size = new System.Drawing.Size(144, 20);
-            this.linkMilantiev.TabIndex = 15;
-            this.linkMilantiev.TabStop = true;
-            this.linkMilantiev.Text = "astro.milantiev.com";
-            // 
-            // linkAstromania
-            // 
-            this.linkAstromania.AutoSize = true;
-            this.linkAstromania.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkAstromania.Location = new System.Drawing.Point(232, 258);
-            this.linkAstromania.Name = "linkAstromania";
-            this.linkAstromania.Size = new System.Drawing.Size(155, 20);
-            this.linkAstromania.TabIndex = 16;
-            this.linkAstromania.TabStop = true;
-            this.linkAstromania.Text = "www.astromania.info";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(8, 56);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(211, 20);
-            this.label10.TabIndex = 18;
-            this.label10.Text = "Part of Astrohostel.ru project";
-            // 
-            // linkAstrohostel
-            // 
-            this.linkAstrohostel.AutoSize = true;
-            this.linkAstrohostel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkAstrohostel.Location = new System.Drawing.Point(273, 56);
-            this.linkAstrohostel.Name = "linkAstrohostel";
-            this.linkAstrohostel.Size = new System.Drawing.Size(106, 20);
-            this.linkAstrohostel.TabIndex = 17;
-            this.linkAstrohostel.TabStop = true;
-            this.linkAstrohostel.Text = "astrohostel.ru";
+            this.lblHardwareVersion.Location = new System.Drawing.Point(251, 44);
+            this.lblHardwareVersion.Name = "lblHardwareVersion";
+            this.lblHardwareVersion.Size = new System.Drawing.Size(197, 41);
+            this.lblHardwareVersion.TabIndex = 19;
             // 
             // MainForm
             // 
@@ -632,22 +650,22 @@ namespace MOCoverControl
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
-            this.Text = "Контроллер крышки объектива";
+            this.Text = "Контроллер крышки объектива MotoHat";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -705,6 +723,8 @@ namespace MOCoverControl
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblVersion;
+        private System.Windows.Forms.Label lblHardwareVersion;
     }
 }
 

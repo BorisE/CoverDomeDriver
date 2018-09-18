@@ -1,0 +1,26 @@
+﻿MotoHat Control Software
+(C) by Boris Emchenko 2018 with the help of Oleg Milantiev
+http://astromania.info
+Part of Astrohostel.ru Project
+http://astrohostel.ru
+
+
+to do:
+- save settings
+- inital settings send on connect to device
+- log save
+- hide/show pannel
+- ASCOM Dome driver based on Engine
+- Device autosearch
+- English translation
+
+
+bugs:
+- MO reported some bug on upgrade
+
+1.0.0 [16.09.2018]
+- Initial release
+- Can full cycle open/close
+- Slow/fast rewind
+- all settings sent to device
+- all settings are read from device

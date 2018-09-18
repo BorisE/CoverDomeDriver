@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MOCoverControl
+namespace MotoHatControl
 {
     public class DataReadClass
     {
