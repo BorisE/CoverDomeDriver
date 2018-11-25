@@ -12,7 +12,7 @@ namespace MotoHatControl
     public class DataReadClass
     {
 
-        private Communications ComObj;
+        private Communications CommunicObj;
 
         public string PortName = "COM4";
 
@@ -28,9 +28,9 @@ namespace MotoHatControl
         #endregion
 
 
-        public DataReadClass(Communications extComObj)
+        public DataReadClass(Communications extCommunicObj)
         {
-            ComObj = extComObj;
+            CommunicObj = extCommunicObj;
         }
 
 
@@ -54,7 +54,7 @@ namespace MotoHatControl
                     // Open the port
                     ComPortObj.Open();
 
-                    ComObj.AddOutput("Comport was opened");
+                    CommunicObj.AddOutput("Comport [" + PortName + "] was opened");
                 }
                 catch (UnauthorizedAccessException) { error = true; }
                 catch (IOException) { error = true; }
@@ -62,7 +62,7 @@ namespace MotoHatControl
             }
             if (error)
             {
-                ComObj.AddOutput("Couldn't open comport");
+                CommunicObj.AddOutput("Couldn't open comport ["+ PortName + "]");
                 return false;
             }
             else
@@ -86,7 +86,7 @@ namespace MotoHatControl
                 {
                     // Close the port
                     ComPortObj.Close();
-                    ComObj.AddOutput("Comport was closed");
+                    CommunicObj.AddOutput("Comport was closed");
                 }
                 catch (UnauthorizedAccessException) { error = true; }
                 catch (IOException) { error = true; }
@@ -94,7 +94,7 @@ namespace MotoHatControl
             }
             if (error)
             {
-                ComObj.AddOutput("Couldn't close comport");
+                CommunicObj.AddOutput("Couldn't close comport");
                 return false;
             }
             else
@@ -146,7 +146,7 @@ namespace MotoHatControl
             // Read all the data waiting in the buffer
             string data = ComPortObj.ReadExisting();
 
-            ComObj.SerialBuffer += data;
+            CommunicObj.SerialBuffer += data;
             //string[] lines = SerialBuffer.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
 
             /// if using with VISUAL INTERFACE
@@ -155,13 +155,13 @@ namespace MotoHatControl
             //Log serial data if needed
             //if (Logging.SerialLogFileFlag) Logging.LogSerial(data);
 
-            if (ComObj.SerialBuffer.Length > ComObj.MAX_BUFFER_LEN)
+            if (CommunicObj.SerialBuffer.Length > CommunicObj.MAX_BUFFER_LEN)
             {
-                ComObj.SerialBuffer = ComObj.SerialBuffer.Substring((Int16)(ComObj.SerialBuffer.Length - ComObj.MAX_BUFFER_LEN));
-                Logging.AddLog("SerialBuffer was cut to " + ComObj.MAX_BUFFER_LEN, LogLevel.Trace);
+                CommunicObj.SerialBuffer = CommunicObj.SerialBuffer.Substring((Int16)(CommunicObj.SerialBuffer.Length - CommunicObj.MAX_BUFFER_LEN));
+                Logging.AddLog("SerialBuffer was cut to " + CommunicObj.MAX_BUFFER_LEN, LogLevel.Trace);
             }
 
-            ComObj.CallBackFunction_Outputreslut?.Invoke(data);
+            CommunicObj.CallBackFunction_Outputreslut?.Invoke(data);
 
             Logging.AddLog("SerialBuffer data was received", LogLevel.Trace);
             LastTimeDataRead = DateTime.Now;
@@ -180,13 +180,13 @@ namespace MotoHatControl
             try
             {
                 ComPortObj.WriteLine(FullCommandSt);
-                ComObj.AddOutput("Command to serial sent: " + FullCommandSt);
+                CommunicObj.AddOutput("Command to serial sent: " + FullCommandSt);
 
                 return true;
             }
             catch
             {
-                ComObj.AddOutput("Error writing command " + FullCommandSt + " to serial");
+                CommunicObj.AddOutput("Error writing command " + FullCommandSt + " to serial");
                 return false;
             }
         }

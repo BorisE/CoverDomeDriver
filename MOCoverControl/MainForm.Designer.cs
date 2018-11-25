@@ -48,6 +48,7 @@ namespace MotoHatControl
             this.button3 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblHardwareVersion = new System.Windows.Forms.Label();
             this.lblVersion = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.linkAstrohostel = new System.Windows.Forms.LinkLabel();
@@ -82,7 +83,6 @@ namespace MotoHatControl
             this.button5 = new System.Windows.Forms.Button();
             this.mainTimer = new System.Windows.Forms.Timer(this.components);
             this.timerRewind = new System.Windows.Forms.Timer(this.components);
-            this.lblHardwareVersion = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -99,17 +99,19 @@ namespace MotoHatControl
             this.txtLogBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtLogBox.Location = new System.Drawing.Point(6, 25);
+            this.txtLogBox.Location = new System.Drawing.Point(8, 31);
+            this.txtLogBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLogBox.Name = "txtLogBox";
-            this.txtLogBox.Size = new System.Drawing.Size(457, 603);
+            this.txtLogBox.Size = new System.Drawing.Size(608, 753);
             this.txtLogBox.TabIndex = 0;
             this.txtLogBox.Text = "";
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(92, 105);
+            this.btnStart.Location = new System.Drawing.Point(123, 131);
+            this.btnStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(167, 40);
+            this.btnStart.Size = new System.Drawing.Size(223, 50);
             this.btnStart.TabIndex = 1;
             this.btnStart.Text = "Подключиться";
             this.btnStart.UseVisualStyleBackColor = true;
@@ -121,18 +123,21 @@ namespace MotoHatControl
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cmbPortList);
             this.groupBox1.Controls.Add(this.btnStart);
-            this.groupBox1.Location = new System.Drawing.Point(590, 4);
+            this.groupBox1.Location = new System.Drawing.Point(787, 5);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 177);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(452, 221);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Подключение";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(215, 30);
+            this.button1.Location = new System.Drawing.Point(287, 38);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 32);
+            this.button1.Size = new System.Drawing.Size(121, 40);
             this.button1.TabIndex = 4;
             this.button1.Text = "Поиск";
             this.button1.UseVisualStyleBackColor = true;
@@ -140,19 +145,22 @@ namespace MotoHatControl
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(10, 36);
+            this.label1.Location = new System.Drawing.Point(13, 45);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 20);
+            this.label1.Size = new System.Drawing.Size(113, 25);
             this.label1.TabIndex = 3;
             this.label1.Text = "COM порт";
             // 
             // cmbPortList
             // 
             this.cmbPortList.FormattingEnabled = true;
-            this.cmbPortList.Location = new System.Drawing.Point(111, 33);
+            this.cmbPortList.Location = new System.Drawing.Point(148, 41);
+            this.cmbPortList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbPortList.Name = "cmbPortList";
-            this.cmbPortList.Size = new System.Drawing.Size(98, 28);
+            this.cmbPortList.Size = new System.Drawing.Size(129, 33);
             this.cmbPortList.TabIndex = 0;
+            this.cmbPortList.TextChanged += new System.EventHandler(this.cmbPortList_TextChanged);
             // 
             // groupBox2
             // 
@@ -164,26 +172,30 @@ namespace MotoHatControl
             this.groupBox2.Controls.Add(this.btnSlowForward);
             this.groupBox2.Controls.Add(this.btnFastForward);
             this.groupBox2.Controls.Add(this.btnOpenCover);
-            this.groupBox2.Location = new System.Drawing.Point(6, 4);
+            this.groupBox2.Location = new System.Drawing.Point(8, 5);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(578, 177);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(771, 221);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Управление крышкой";
             // 
             // progressBarOpenClose
             // 
-            this.progressBarOpenClose.Location = new System.Drawing.Point(19, 105);
+            this.progressBarOpenClose.Location = new System.Drawing.Point(25, 131);
+            this.progressBarOpenClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.progressBarOpenClose.Name = "progressBarOpenClose";
-            this.progressBarOpenClose.Size = new System.Drawing.Size(533, 17);
+            this.progressBarOpenClose.Size = new System.Drawing.Size(711, 21);
             this.progressBarOpenClose.TabIndex = 3;
             // 
             // btnCloseCover
             // 
             this.btnCloseCover.Enabled = false;
-            this.btnCloseCover.Location = new System.Drawing.Point(451, 36);
+            this.btnCloseCover.Location = new System.Drawing.Point(601, 45);
+            this.btnCloseCover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCloseCover.Name = "btnCloseCover";
-            this.btnCloseCover.Size = new System.Drawing.Size(101, 45);
+            this.btnCloseCover.Size = new System.Drawing.Size(135, 56);
             this.btnCloseCover.TabIndex = 0;
             this.btnCloseCover.Text = "Закрыть";
             this.btnCloseCover.UseVisualStyleBackColor = true;
@@ -192,9 +204,10 @@ namespace MotoHatControl
             // btnStop
             // 
             this.btnStop.Enabled = false;
-            this.btnStop.Location = new System.Drawing.Point(235, 36);
+            this.btnStop.Location = new System.Drawing.Point(313, 45);
+            this.btnStop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(101, 45);
+            this.btnStop.Size = new System.Drawing.Size(135, 56);
             this.btnStop.TabIndex = 0;
             this.btnStop.Text = "Стоп";
             this.btnStop.UseVisualStyleBackColor = true;
@@ -203,9 +216,10 @@ namespace MotoHatControl
             // btnSlowBackward
             // 
             this.btnSlowBackward.Enabled = false;
-            this.btnSlowBackward.Location = new System.Drawing.Point(343, 36);
+            this.btnSlowBackward.Location = new System.Drawing.Point(457, 45);
+            this.btnSlowBackward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSlowBackward.Name = "btnSlowBackward";
-            this.btnSlowBackward.Size = new System.Drawing.Size(47, 45);
+            this.btnSlowBackward.Size = new System.Drawing.Size(63, 56);
             this.btnSlowBackward.TabIndex = 0;
             this.btnSlowBackward.Text = ">";
             this.btnSlowBackward.UseVisualStyleBackColor = true;
@@ -215,9 +229,10 @@ namespace MotoHatControl
             // btnFastBackward
             // 
             this.btnFastBackward.Enabled = false;
-            this.btnFastBackward.Location = new System.Drawing.Point(397, 36);
+            this.btnFastBackward.Location = new System.Drawing.Point(529, 45);
+            this.btnFastBackward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFastBackward.Name = "btnFastBackward";
-            this.btnFastBackward.Size = new System.Drawing.Size(47, 45);
+            this.btnFastBackward.Size = new System.Drawing.Size(63, 56);
             this.btnFastBackward.TabIndex = 0;
             this.btnFastBackward.Text = ">>";
             this.btnFastBackward.UseVisualStyleBackColor = true;
@@ -227,9 +242,10 @@ namespace MotoHatControl
             // btnSlowForward
             // 
             this.btnSlowForward.Enabled = false;
-            this.btnSlowForward.Location = new System.Drawing.Point(181, 36);
+            this.btnSlowForward.Location = new System.Drawing.Point(241, 45);
+            this.btnSlowForward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSlowForward.Name = "btnSlowForward";
-            this.btnSlowForward.Size = new System.Drawing.Size(47, 45);
+            this.btnSlowForward.Size = new System.Drawing.Size(63, 56);
             this.btnSlowForward.TabIndex = 0;
             this.btnSlowForward.Text = "<";
             this.btnSlowForward.UseVisualStyleBackColor = true;
@@ -239,9 +255,10 @@ namespace MotoHatControl
             // btnFastForward
             // 
             this.btnFastForward.Enabled = false;
-            this.btnFastForward.Location = new System.Drawing.Point(127, 36);
+            this.btnFastForward.Location = new System.Drawing.Point(169, 45);
+            this.btnFastForward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFastForward.Name = "btnFastForward";
-            this.btnFastForward.Size = new System.Drawing.Size(47, 45);
+            this.btnFastForward.Size = new System.Drawing.Size(63, 56);
             this.btnFastForward.TabIndex = 0;
             this.btnFastForward.Text = "<<";
             this.btnFastForward.UseVisualStyleBackColor = true;
@@ -251,9 +268,10 @@ namespace MotoHatControl
             // btnOpenCover
             // 
             this.btnOpenCover.Enabled = false;
-            this.btnOpenCover.Location = new System.Drawing.Point(19, 36);
+            this.btnOpenCover.Location = new System.Drawing.Point(25, 45);
+            this.btnOpenCover.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOpenCover.Name = "btnOpenCover";
-            this.btnOpenCover.Size = new System.Drawing.Size(101, 45);
+            this.btnOpenCover.Size = new System.Drawing.Size(135, 56);
             this.btnOpenCover.TabIndex = 0;
             this.btnOpenCover.Text = "Открыть";
             this.btnOpenCover.UseVisualStyleBackColor = true;
@@ -261,9 +279,10 @@ namespace MotoHatControl
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(782, 187);
+            this.button3.Location = new System.Drawing.Point(1043, 234);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(147, 36);
+            this.button3.Size = new System.Drawing.Size(196, 45);
             this.button3.TabIndex = 4;
             this.button3.Text = ">>";
             this.button3.UseVisualStyleBackColor = true;
@@ -277,9 +296,10 @@ namespace MotoHatControl
             this.panel1.Controls.Add(this.groupBox5);
             this.panel1.Controls.Add(this.groupBox4);
             this.panel1.Controls.Add(this.groupBox3);
-            this.panel1.Location = new System.Drawing.Point(3, 240);
+            this.panel1.Location = new System.Drawing.Point(4, 300);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(940, 645);
+            this.panel1.Size = new System.Drawing.Size(1253, 806);
             this.panel1.TabIndex = 5;
             // 
             // groupBox6
@@ -294,27 +314,39 @@ namespace MotoHatControl
             this.groupBox6.Controls.Add(this.label8);
             this.groupBox6.Controls.Add(this.label14);
             this.groupBox6.Controls.Add(this.pictureBox1);
-            this.groupBox6.Location = new System.Drawing.Point(478, 337);
+            this.groupBox6.Location = new System.Drawing.Point(637, 421);
+            this.groupBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(454, 300);
+            this.groupBox6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox6.Size = new System.Drawing.Size(605, 375);
             this.groupBox6.TabIndex = 5;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "O..";
             // 
+            // lblHardwareVersion
+            // 
+            this.lblHardwareVersion.Location = new System.Drawing.Point(335, 55);
+            this.lblHardwareVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblHardwareVersion.Name = "lblHardwareVersion";
+            this.lblHardwareVersion.Size = new System.Drawing.Size(263, 51);
+            this.lblHardwareVersion.TabIndex = 19;
+            // 
             // lblVersion
             // 
-            this.lblVersion.Location = new System.Drawing.Point(6, 44);
+            this.lblVersion.Location = new System.Drawing.Point(8, 55);
+            this.lblVersion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(238, 41);
+            this.lblVersion.Size = new System.Drawing.Size(317, 51);
             this.lblVersion.TabIndex = 19;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label10.Location = new System.Drawing.Point(251, 104);
+            this.label10.Location = new System.Drawing.Point(335, 130);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(211, 20);
+            this.label10.Size = new System.Drawing.Size(285, 25);
             this.label10.TabIndex = 18;
             this.label10.Text = "Part of Astrohostel.ru project";
             // 
@@ -322,9 +354,10 @@ namespace MotoHatControl
             // 
             this.linkAstrohostel.AutoSize = true;
             this.linkAstrohostel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkAstrohostel.Location = new System.Drawing.Point(251, 124);
+            this.linkAstrohostel.Location = new System.Drawing.Point(335, 155);
+            this.linkAstrohostel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkAstrohostel.Name = "linkAstrohostel";
-            this.linkAstrohostel.Size = new System.Drawing.Size(106, 20);
+            this.linkAstrohostel.Size = new System.Drawing.Size(143, 25);
             this.linkAstrohostel.TabIndex = 17;
             this.linkAstrohostel.TabStop = true;
             this.linkAstrohostel.Text = "astrohostel.ru";
@@ -333,9 +366,10 @@ namespace MotoHatControl
             // 
             this.linkMilantiev.AutoSize = true;
             this.linkMilantiev.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkMilantiev.Location = new System.Drawing.Point(243, 226);
+            this.linkMilantiev.Location = new System.Drawing.Point(324, 282);
+            this.linkMilantiev.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkMilantiev.Name = "linkMilantiev";
-            this.linkMilantiev.Size = new System.Drawing.Size(144, 20);
+            this.linkMilantiev.Size = new System.Drawing.Size(197, 25);
             this.linkMilantiev.TabIndex = 15;
             this.linkMilantiev.TabStop = true;
             this.linkMilantiev.Text = "astro.milantiev.com";
@@ -344,9 +378,10 @@ namespace MotoHatControl
             // 
             this.linkAstromania.AutoSize = true;
             this.linkAstromania.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.linkAstromania.Location = new System.Drawing.Point(232, 258);
+            this.linkAstromania.Location = new System.Drawing.Point(309, 322);
+            this.linkAstromania.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkAstromania.Name = "linkAstromania";
-            this.linkAstromania.Size = new System.Drawing.Size(155, 20);
+            this.linkAstromania.Size = new System.Drawing.Size(210, 25);
             this.linkAstromania.TabIndex = 16;
             this.linkAstromania.TabStop = true;
             this.linkAstromania.Text = "www.astromania.info";
@@ -354,18 +389,20 @@ namespace MotoHatControl
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 258);
+            this.label9.Location = new System.Drawing.Point(8, 322);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(213, 20);
+            this.label9.Size = new System.Drawing.Size(287, 25);
             this.label9.TabIndex = 14;
             this.label9.Text = "Software by Boris Emchenko";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 226);
+            this.label8.Location = new System.Drawing.Point(8, 282);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(179, 20);
+            this.label8.Size = new System.Drawing.Size(250, 25);
             this.label8.TabIndex = 13;
             this.label8.Text = "Device by Oleg Milantiev";
             // 
@@ -373,9 +410,10 @@ namespace MotoHatControl
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
             this.label14.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label14.Location = new System.Drawing.Point(6, 22);
+            this.label14.Location = new System.Drawing.Point(8, 28);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(266, 22);
+            this.label14.Size = new System.Drawing.Size(355, 28);
             this.label14.TabIndex = 12;
             this.label14.Text = "MotoHat Contorl Software";
             // 
@@ -384,10 +422,10 @@ namespace MotoHatControl
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 90);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 112);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(238, 131);
+            this.pictureBox1.Size = new System.Drawing.Size(317, 164);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -398,9 +436,11 @@ namespace MotoHatControl
             this.groupBox5.Controls.Add(this.txtRewindSlowSteps);
             this.groupBox5.Controls.Add(this.txtRewindFastSteps);
             this.groupBox5.Controls.Add(this.label11);
-            this.groupBox5.Location = new System.Drawing.Point(478, 226);
+            this.groupBox5.Location = new System.Drawing.Point(637, 282);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(454, 105);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox5.Size = new System.Drawing.Size(605, 131);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Параметры программы";
@@ -408,26 +448,29 @@ namespace MotoHatControl
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 32);
+            this.label7.Location = new System.Drawing.Point(19, 40);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 20);
+            this.label7.Size = new System.Drawing.Size(123, 25);
             this.label7.TabIndex = 3;
             this.label7.Text = "Перемотка";
             // 
             // txtRewindSlowSteps
             // 
-            this.txtRewindSlowSteps.Location = new System.Drawing.Point(212, 29);
+            this.txtRewindSlowSteps.Location = new System.Drawing.Point(283, 36);
+            this.txtRewindSlowSteps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRewindSlowSteps.Name = "txtRewindSlowSteps";
-            this.txtRewindSlowSteps.Size = new System.Drawing.Size(84, 26);
+            this.txtRewindSlowSteps.Size = new System.Drawing.Size(111, 31);
             this.txtRewindSlowSteps.TabIndex = 2;
             this.txtRewindSlowSteps.Enter += new System.EventHandler(this.txtSens_Enter);
             this.txtRewindSlowSteps.Leave += new System.EventHandler(this.txtSens_Leave);
             // 
             // txtRewindFastSteps
             // 
-            this.txtRewindFastSteps.Location = new System.Drawing.Point(212, 64);
+            this.txtRewindFastSteps.Location = new System.Drawing.Point(283, 80);
+            this.txtRewindFastSteps.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtRewindFastSteps.Name = "txtRewindFastSteps";
-            this.txtRewindFastSteps.Size = new System.Drawing.Size(84, 26);
+            this.txtRewindFastSteps.Size = new System.Drawing.Size(111, 31);
             this.txtRewindFastSteps.TabIndex = 2;
             this.txtRewindFastSteps.Enter += new System.EventHandler(this.txtSens_Enter);
             this.txtRewindFastSteps.Leave += new System.EventHandler(this.txtSens_Leave);
@@ -435,9 +478,10 @@ namespace MotoHatControl
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 67);
+            this.label11.Location = new System.Drawing.Point(19, 84);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(161, 20);
+            this.label11.Size = new System.Drawing.Size(211, 25);
             this.label11.TabIndex = 3;
             this.label11.Text = "Быстрая перемотка";
             // 
@@ -457,18 +501,21 @@ namespace MotoHatControl
             this.groupBox4.Controls.Add(this.txtSensCLN);
             this.groupBox4.Controls.Add(this.txtSensACL);
             this.groupBox4.Controls.Add(this.label3);
-            this.groupBox4.Location = new System.Drawing.Point(478, 3);
+            this.groupBox4.Location = new System.Drawing.Point(637, 4);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(454, 217);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox4.Size = new System.Drawing.Size(605, 271);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Параметры драйвера";
             // 
             // btnSensorSetCLN
             // 
-            this.btnSensorSetCLN.Location = new System.Drawing.Point(247, 168);
+            this.btnSensorSetCLN.Location = new System.Drawing.Point(329, 210);
+            this.btnSensorSetCLN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSensorSetCLN.Name = "btnSensorSetCLN";
-            this.btnSensorSetCLN.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetCLN.Size = new System.Drawing.Size(100, 36);
             this.btnSensorSetCLN.TabIndex = 4;
             this.btnSensorSetCLN.Text = ">>";
             this.btnSensorSetCLN.UseVisualStyleBackColor = true;
@@ -476,9 +523,10 @@ namespace MotoHatControl
             // 
             // btnSensorSetACL
             // 
-            this.btnSensorSetACL.Location = new System.Drawing.Point(247, 98);
+            this.btnSensorSetACL.Location = new System.Drawing.Point(329, 122);
+            this.btnSensorSetACL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSensorSetACL.Name = "btnSensorSetACL";
-            this.btnSensorSetACL.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetACL.Size = new System.Drawing.Size(100, 36);
             this.btnSensorSetACL.TabIndex = 4;
             this.btnSensorSetACL.Text = ">>";
             this.btnSensorSetACL.UseVisualStyleBackColor = true;
@@ -486,9 +534,10 @@ namespace MotoHatControl
             // 
             // btnSensorSetSPD
             // 
-            this.btnSensorSetSPD.Location = new System.Drawing.Point(247, 63);
+            this.btnSensorSetSPD.Location = new System.Drawing.Point(329, 79);
+            this.btnSensorSetSPD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSensorSetSPD.Name = "btnSensorSetSPD";
-            this.btnSensorSetSPD.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetSPD.Size = new System.Drawing.Size(100, 36);
             this.btnSensorSetSPD.TabIndex = 4;
             this.btnSensorSetSPD.Text = ">>";
             this.btnSensorSetSPD.UseVisualStyleBackColor = true;
@@ -496,9 +545,10 @@ namespace MotoHatControl
             // 
             // btnSensorSetPOS
             // 
-            this.btnSensorSetPOS.Location = new System.Drawing.Point(247, 28);
+            this.btnSensorSetPOS.Location = new System.Drawing.Point(329, 35);
+            this.btnSensorSetPOS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSensorSetPOS.Name = "btnSensorSetPOS";
-            this.btnSensorSetPOS.Size = new System.Drawing.Size(75, 29);
+            this.btnSensorSetPOS.Size = new System.Drawing.Size(100, 36);
             this.btnSensorSetPOS.TabIndex = 4;
             this.btnSensorSetPOS.Text = ">>";
             this.btnSensorSetPOS.UseVisualStyleBackColor = true;
@@ -507,26 +557,29 @@ namespace MotoHatControl
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 32);
+            this.label2.Location = new System.Drawing.Point(19, 40);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
+            this.label2.Size = new System.Drawing.Size(97, 25);
             this.label2.TabIndex = 3;
             this.label2.Text = "Позиция";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 137);
+            this.label5.Location = new System.Drawing.Point(19, 171);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 20);
+            this.label5.Size = new System.Drawing.Size(144, 25);
             this.label5.TabIndex = 3;
             this.label5.Text = "Тек.скорость";
             // 
             // txtSensPOS
             // 
-            this.txtSensPOS.Location = new System.Drawing.Point(140, 29);
+            this.txtSensPOS.Location = new System.Drawing.Point(187, 36);
+            this.txtSensPOS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSensPOS.Name = "txtSensPOS";
-            this.txtSensPOS.Size = new System.Drawing.Size(84, 26);
+            this.txtSensPOS.Size = new System.Drawing.Size(111, 31);
             this.txtSensPOS.TabIndex = 2;
             this.txtSensPOS.Enter += new System.EventHandler(this.txtSens_Enter);
             this.txtSensPOS.Leave += new System.EventHandler(this.txtSens_Leave);
@@ -534,52 +587,58 @@ namespace MotoHatControl
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(14, 172);
+            this.label6.Location = new System.Drawing.Point(19, 215);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 20);
+            this.label6.Size = new System.Drawing.Size(141, 25);
             this.label6.TabIndex = 3;
             this.label6.Text = "Длина цикла";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(14, 102);
+            this.label4.Location = new System.Drawing.Point(19, 128);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.Size = new System.Drawing.Size(119, 25);
             this.label4.TabIndex = 3;
             this.label4.Text = "Ускорение";
             // 
             // txtSensSPD
             // 
-            this.txtSensSPD.Location = new System.Drawing.Point(140, 64);
+            this.txtSensSPD.Location = new System.Drawing.Point(187, 80);
+            this.txtSensSPD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSensSPD.Name = "txtSensSPD";
-            this.txtSensSPD.Size = new System.Drawing.Size(84, 26);
+            this.txtSensSPD.Size = new System.Drawing.Size(111, 31);
             this.txtSensSPD.TabIndex = 2;
             this.txtSensSPD.Enter += new System.EventHandler(this.txtSens_Enter);
             this.txtSensSPD.Leave += new System.EventHandler(this.txtSens_Leave);
             // 
             // txtSensSPC
             // 
-            this.txtSensSPC.Location = new System.Drawing.Point(140, 134);
+            this.txtSensSPC.Location = new System.Drawing.Point(187, 168);
+            this.txtSensSPC.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSensSPC.Name = "txtSensSPC";
             this.txtSensSPC.ReadOnly = true;
-            this.txtSensSPC.Size = new System.Drawing.Size(84, 26);
+            this.txtSensSPC.Size = new System.Drawing.Size(111, 31);
             this.txtSensSPC.TabIndex = 2;
             // 
             // txtSensCLN
             // 
-            this.txtSensCLN.Location = new System.Drawing.Point(140, 169);
+            this.txtSensCLN.Location = new System.Drawing.Point(187, 211);
+            this.txtSensCLN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSensCLN.Name = "txtSensCLN";
-            this.txtSensCLN.Size = new System.Drawing.Size(84, 26);
+            this.txtSensCLN.Size = new System.Drawing.Size(111, 31);
             this.txtSensCLN.TabIndex = 2;
             this.txtSensCLN.Enter += new System.EventHandler(this.txtSens_Enter);
             this.txtSensCLN.Leave += new System.EventHandler(this.txtSens_Leave);
             // 
             // txtSensACL
             // 
-            this.txtSensACL.Location = new System.Drawing.Point(140, 99);
+            this.txtSensACL.Location = new System.Drawing.Point(187, 124);
+            this.txtSensACL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSensACL.Name = "txtSensACL";
-            this.txtSensACL.Size = new System.Drawing.Size(84, 26);
+            this.txtSensACL.Size = new System.Drawing.Size(111, 31);
             this.txtSensACL.TabIndex = 2;
             this.txtSensACL.Enter += new System.EventHandler(this.txtSens_Enter);
             this.txtSensACL.Leave += new System.EventHandler(this.txtSens_Leave);
@@ -587,18 +646,21 @@ namespace MotoHatControl
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 67);
+            this.label3.Location = new System.Drawing.Point(19, 84);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 20);
+            this.label3.Size = new System.Drawing.Size(160, 25);
             this.label3.TabIndex = 3;
             this.label3.Text = "Макс.скорость";
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.txtLogBox);
-            this.groupBox3.Location = new System.Drawing.Point(3, 3);
+            this.groupBox3.Location = new System.Drawing.Point(4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(469, 634);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(625, 792);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Лог";
@@ -611,16 +673,18 @@ namespace MotoHatControl
             this.panel2.Controls.Add(this.groupBox2);
             this.panel2.Controls.Add(this.button5);
             this.panel2.Controls.Add(this.button3);
-            this.panel2.Location = new System.Drawing.Point(6, 8);
+            this.panel2.Location = new System.Drawing.Point(8, 10);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(937, 226);
+            this.panel2.Size = new System.Drawing.Size(1249, 282);
             this.panel2.TabIndex = 6;
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(6, 187);
+            this.button5.Location = new System.Drawing.Point(8, 234);
+            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(147, 36);
+            this.button5.Size = new System.Drawing.Size(196, 45);
             this.button5.TabIndex = 4;
             this.button5.Text = "О программе";
             this.button5.UseVisualStyleBackColor = true;
@@ -635,20 +699,14 @@ namespace MotoHatControl
             this.timerRewind.Interval = 1000;
             this.timerRewind.Tick += new System.EventHandler(this.timerRewind_Tick);
             // 
-            // lblHardwareVersion
-            // 
-            this.lblHardwareVersion.Location = new System.Drawing.Point(251, 44);
-            this.lblHardwareVersion.Name = "lblHardwareVersion";
-            this.lblHardwareVersion.Size = new System.Drawing.Size(197, 41);
-            this.lblHardwareVersion.TabIndex = 19;
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 888);
+            this.ClientSize = new System.Drawing.Size(1263, 1110);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Контроллер крышки объектива MotoHat";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);

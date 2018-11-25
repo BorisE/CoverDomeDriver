@@ -418,6 +418,11 @@ namespace MotoHatControl
             Process.Start(e.Link.LinkData.ToString());
         }
 
+        private void cmbPortList_TextChanged(object sender, EventArgs e)
+        {
+            ComObj.DataReadObj.PortName = (sender as ComboBox).Text;
+        }
+
         #endregion About information
         /**************************************************************************************************/
 
